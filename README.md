@@ -1,45 +1,52 @@
-geopolitische Analyse: Faktoren der politischen Instabilität
+# Geopolitische Analyse: Faktoren der politischen Instabilität
 
-Dieses Projekt ist eine wissenschaftliche Analyse, die den V-Dem Datensatz (Varieties of Democracy) nutzt, um die komplexen Faktoren zu identifizieren, die politische Instabilität in verschiedenen Ländern beeinflussen.
+Dieses Projekt nutzt den umfassenden **V-Dem (Varieties of Democracy)** Datensatz, um durch wissenschaftliche Datenanalyse die komplexen Treiber politischer Instabilität zu identifizieren. Mittels explorativer Datenanalyse (EDA) und **Unsupervised Learning (Clusteranalyse)** werden globale Muster und länderspezifische "Stabilitäts-Stereotypen" aufgedeckt.
 
-Die zentrale Methode ist die Explorative Datenanalyse (EDA) und Clusteranalyse (Unsupervised Learning), um länderspezifische Muster und "Stereotypen" hinsichtlich ihrer Stabilitätslage zu entdecken.
-🎯 Motivation und Projektziele
-Kurzzusammenfassung (Pitch)
+---
 
-Politische Instabilität stellt ein erhebliches Risiko für die globale Sicherheit, Wirtschaft und Entwicklung dar. Dieses Projekt zielt darauf ab, politische Entscheidungsträger und internationale Organisationen durch die Bereitstellung datengestützter Erkenntnisse zu unterstützen.
+## Motivation und Projektziele
 
-    Risikoerkennung: Frühzeitige Entdeckung von Ländern, die ähnliche Muster im Hinblick auf ihre politische Instabilität aufweisen.
+Politische Instabilität gefährdet die globale Sicherheit und wirtschaftliche Entwicklung. Dieses Projekt liefert datengestützte Erkenntnisse für Entscheidungsträger und internationale Organisationen.
 
-    Musteridentifikation: Identifizierung von gemeinsamen Mustern und Faktoren mit starkem Einfluss auf die Stabilität (z.B. Korruption, Medienfreiheit, sozioökonomische Ungleichheit).
+### Kernziele
+* **Risikoerkennung:** Frühzeitige Identifikation von Ländern mit instabilen Mustern.
+* **Musteridentifikation:** Analyse von Faktoren wie Korruption, Medienfreiheit und sozioökonomische Ungleichheit.
+* **Gezielte Prävention:** Ermöglichung ressourceneffizienter Maßnahmen in identifizierten Risikoclustern.
+* **Interpretation:** Charakterisierung homogener Ländergruppen zur Definition länderübergreifender Stabilitätsprofile.
 
-    Gezielte Prävention: Ermöglichen gezielterer und ressourceneffizienterer präventiver Maßnahmen in den identifizierten Risikoclustern.
+---
 
-Hauptziele der Analyse
+## Datenbasis
 
-    Exploration: Tiefgehende EDA des V-Dem-Datensatzes zur Vorbereitung für das Clustering.
+Die Analyse basiert auf dem **V-Dem-Datensatz**, einer der weltweit führenden Quellen für Governance-Indikatoren.
 
-    Clustering: Anwendung geeigneter Cluster-Algorithmen, um Länder in homogene Gruppen (Cluster) einzuteilen.
+* **Quelle:** [Varieties of Democracy (V-Dem) Institute](https://www.v-dem.net/)
+* **Inhalt:** Hochdimensionale Daten zu politischen Rechten, bürgerlichen Freiheiten, Korruptionskontrolle, Medienpluralismus und Partizipation.
 
-    Interpretation: Charakterisierung jedes Clusters, um die vorherrschenden Faktoren und länderübergreifenden Stereotypen der politischen Stabilität zu definieren.
+---
 
-📂 Datenbasis
+## Methodik und Workflow
 
-Das Projekt basiert auf dem V-Dem Datensatz, einem der umfassendsten Datensätze zur Messung von Demokratie und Governance-Indikatoren weltweit.
+Der strukturierte Workflow ist im Jupyter Notebook `final.ipynb` dokumentiert:
 
-    Quelle: Varieties of Democracy (V-Dem) Institute.
+### 1. Datenvorbereitung & Preprocessing
+* Auswahl relevanter Indizes aus der V-Dem-Datenbank.
+* Behandlung fehlender Werte (Imputation) und Skalierung der Features.
 
-    Inhalt: Eine breite Palette von Indizes und Variablen, die Aspekte wie politische Rechte, bürgerliche Freiheiten, Korruptionskontrolle, Medienpluralismus und Partizipation abdecken.
+### 2. Dimensionsreduktion
+* Einsatz von Verfahren wie **PCA (Principal Component Analysis)**, um die Komplexität der hochdimensionalen Daten zu reduzieren und die wichtigsten Varianztreiber zu isolieren.
 
-⚙️ Methodik und Workflow (Jupyter Notebook)
+### 3. Clustering (Unsupervised Learning)
+* **Algorithmen:** Anwendung von K-Means oder DBSCAN zur Gruppierung der Länder.
+* **Validierung:** Bestimmung der optimalen Clusteranzahl mittels **Elbow-Methode** und **Silhouetten-Score**.
 
-Die Analyse folgt einem strukturierten Workflow, der im Notebook final.ipynb detailliert dokumentiert ist:
+### 4. Analyse & Interpretation
+* Untersuchung der Cluster-Zentren (Mittelwerte der Indikatoren).
+* Identifikation der "Treiber-Faktoren" (z. B. Pressefreiheit vs. Korruption) innerhalb der jeweiligen Gruppen.
 
-    Datenvorbereitung: Auswahl relevanter V-Dem-Indizes, Behandlung fehlender Werte und Skalierung der numerischen Features (Preprocessing).
+---
 
-    Dimensionsreduktion (Optional/Vorarbeit): Analyse der Merkmalsbedeutung oder Anwendung von PCA, um die Komplexität der hochdimensionalen V-Dem-Daten zu reduzieren.
+## Fazit und Ausblick
 
-    Clustering: Anwendung des gewählten Cluster-Algorithmus (z.B. K-Means, DBSCAN) zur Gruppierung der Länder. Die optimale Anzahl der Cluster wurde basierend auf Metriken (z.B. Elbow-Methode, Silhouetten-Score) bestimmt.
+Das Projekt zeigt auf, wie Machine Learning dazu beitragen kann, geopolitische Dynamiken besser zu verstehen. Die identifizierten Cluster bieten eine fundierte Basis für die Entwicklung präventiver politischer Strategien und unterstreichen die Bedeutung von Medienfreiheit und Korruptionsbekämpfung für die staatliche Stabilität.
 
-    Cluster-Analyse: Die gefundenen Cluster werden interpretiert, indem die Mittelwerte und Verteilungen der wichtigsten V-Dem-Indikatoren pro Cluster untersucht werden. Dies führt zur Identifikation der Faktoren mit starkem Einfluss (z.B. Korruption oder Pressefreiheit).
-
-    Bewertung & Fazit: Reflexion über die erreichten Ziele, die Aussagekraft der identifizierten Cluster und die Anwendbarkeit der Ergebnisse für politische Akteure.
